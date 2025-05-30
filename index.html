@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="D'Bayong Art - Handcrafted Filipino Bayong Bags featuring unique designs and traditional craftsmanship">
+    <meta name="theme-color" content="#ffffff">
     <title>D'Bayong Art - Handcrafted Filipino Bayong Bags</title>
-    <link rel="icon" href="icon.svg" type="icon/svg+xml">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" as="style">
+    <link rel="preload" href="logo (2).png" as="image">
+    
+    <!-- Preconnect to required origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link rel="icon" href="Untitled design (3).png" type="icon/svg+xml">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #8B5A3C;
+            --secondary-color: #FEF3E2;
+            --text-dark: #1a202c;
+            --text-light: #4a5568;
+            --border-color: rgba(229, 231, 235, 0.3);
+            --transition-default: all 0.4s ease;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,15 +38,12 @@
 
         body, html {
             height: 100%;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             background-color: #fefefe;
             scroll-behavior: smooth;
             overflow-x: hidden;
-        }
-
-        body {
             line-height: 1.7;
-            color: #2d3748;
+            color: var(--text-dark);
         }
 
         .container {
@@ -59,7 +79,7 @@
         .logo-circle {
             width: 52px;
             height: 52px;
-            background: linear-gradient(135deg, #FEF3E2 0%, #F7E6D3 100%);
+            background: #fff; /* Changed from gradient to solid white */
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -306,6 +326,79 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(229, 231, 235, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8B5A3C, #FEF3E2);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FEF3E2 0%, #F7E6D3 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            box-shadow: 0 8px 25px rgba(254, 243, 226, 0.4);
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .feature-text {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
         /* Section Styles */
         .section {
             padding: 5rem 0;
@@ -381,21 +474,15 @@
             font-size: 1rem;
         }
 
-        /* Collection Grid */
-        .collection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
+        /* Card Components */
         .product-card {
             background: #ffffff;
-            border: 1px solid rgba(229, 231, 235, 0.3);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s ease;
-            position: relative;
+            transition: var(--transition-default);
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card:hover {
@@ -405,80 +492,62 @@
 
         .product-image {
             width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #9ca3af;
-            font-size: 1rem;
-            font-weight: 500;
+            height: 300px;
             position: relative;
             overflow: hidden;
         }
 
-        .product-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23FEF3E2" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: var(--transition-default);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
         }
 
         .product-info {
             padding: 2rem;
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
         }
 
         .product-title {
+            font-family: var(--font-heading);
             font-weight: 600;
-            color: #1a202c;
+            color: var(--text-dark);
             margin-bottom: 0.75rem;
             font-size: 1.1rem;
-            font-family: 'Playfair Display', serif;
         }
 
         .product-category {
             font-size: 0.9rem;
-            color: #8B5A3C;
-            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .product-description {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #FEF3E2 0%, #F7E6D3 100%);
-            color: #1a202c;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.4s ease;
-            text-align: center;
-            width: 100%;
+        .product-desc {
+            color: var(--text-light);
             font-size: 0.95rem;
-            border-radius: 12px;
-            border: 1px solid rgba(254, 243, 226, 0.5);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
-        .btn:hover {
-            background: linear-gradient(135deg, #8B5A3C 0%, #6B4423 100%);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 90, 60, 0.3);
+        /* Grid Layouts */
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
         }
 
-        /* Category Buttons */
+        /* Category Navigation */
         .category-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -490,275 +559,53 @@
         .category-btn {
             padding: 0.75rem 1.5rem;
             border-radius: 50px;
-            border: 2px solid rgba(229, 231, 235, 0.5);
+            border: 2px solid var(--border-color);
             background: #ffffff;
-            color: #4a5568;
+            color: var(--text-light);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition-default);
             font-size: 0.95rem;
             font-weight: 500;
             white-space: nowrap;
         }
 
-        .category-btn.active {
-            background: linear-gradient(135deg, #8B5A3C 0%, #6B4423 100%);
+        .category-btn.active,
+        .category-btn:hover {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #6B4423 100%);
             color: #ffffff;
-            border-color: #8B5A3C;
+            border-color: var(--primary-color);
             box-shadow: 0 8px 25px rgba(139, 90, 60, 0.3);
         }
 
-        .category-btn:hover {
-            background: #ffffff;
-            border-color: #d1d5db;
-            transform: translateY(-2px);
-        }
-
-        /* Contact Section */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            text-align: center;
-        }
-
-        .contact-card {
-            background: #ffffff;
-            border: 1px solid rgba(229, 231, 235, 0.3);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #8B5A3C, #FEF3E2);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .contact-icon {
-            width: 3rem;
-            height: 3rem;
-            margin: 0 auto 1.5rem;
-        }
-
-        .contact-title {
-            font-weight: 600;
-            color: #1a202c;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .contact-info {
-            color: #4a5568;
-            word-break: break-word;
-            font-size: 1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: #ffffff;
-            color: #1a202c;
-            border-top: 1px solid rgba(229, 231, 235, 0.3);
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-logo-circle {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #FEF3E2 0%, #F7E6D3 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .footer-brand {
-            color: #1a202c;
-            font-size: 1.5rem;
-            font-weight: 600;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .footer-description {
-            color: #4a5568;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .footer-copyright {
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Responsive Design */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .header-content {
-                height: 70px;
-            }
-
-            .logo-circle {
-                width: 45px;
-                height: 45px;
-            }
-
-            .logo-text {
-                font-size: 1.4rem;
-            }
-
-            .hero {
-                min-height: auto;
-                padding: 3rem 0;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-            }
-
-            .hero-title {
-                font-size: 2.8rem;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
-            }
-
-            .hero-image {
-                height: 450px;
-                order: -1;
-                transform: rotate(0deg);
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .section-description {
-                font-size: 1.1rem;
-                margin-bottom: 2rem;
-            }
-
             .collection-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .mission-vision {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .category-buttons {
-                justify-content: flex-start;
-                gap: 0.75rem;
-            }
-
-            .category-btn {
-                font-size: 0.85rem;
-                padding: 0.6rem 1.2rem;
-            }
-
-            .card {
-                padding: 2rem;
-            }
-
-            .contact-card {
-                padding: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
             }
 
             .product-image {
-                height: 220px;
+                height: 250px;
             }
 
-            .footer {
-                padding: 2.5rem 0;
+            .product-info {
+                padding: 1.5rem;
             }
 
-            .footer-brand {
-                font-size: 1.3rem;
+            .category-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
-                padding: 0 0.75rem;
+            .collection-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
             }
 
-            .hero-title {
-                font-size: 2.2rem;
-            }
-
-            .hero-image {
-                height: 350px;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .section-description {
-                font-size: 1rem;
-            }
-
-            .logo-text {
-                font-size: 1.2rem;
+            .product-image {
+                height: 200px;
             }
 
             .category-buttons {
@@ -766,63 +613,157 @@
             }
 
             .category-btn {
-                font-size: 0.8rem;
                 padding: 0.5rem 1rem;
-            }
-
-            .product-image {
-                height: 200px;
-            }
-
-            .card-title {
-                font-size: 1.3rem;
-            }
-
-            .contact-title {
-                font-size: 1.1rem;
-            }
-
-            .contact-info {
-                font-size: 0.95rem;
+                font-size: 0.85rem;
             }
         }
 
         /* Utility Classes */
-        .text-center {
-            text-align: center;
-        }
-
         .hidden {
             display: none;
         }
 
-        .mb-4 {
-            margin-bottom: 1rem;
+        .category-container {
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
 
-        .mb-8 {
-            margin-bottom: 2rem;
+        .category-container.fade {
+            opacity: 0;
         }
 
-        .mt-8 {
+        /* Scroll animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #ffffff;
+            color: var(--text-dark);
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            color: #e11d48;
+        }
+
+        .contact-icon.facebook {
+            color: #1877F2;
+        }
+
+        .contact-icon.location {
+            color: #e11d48;
+        }
+
+        .contact-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .contact-detail {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .footer-logo-circle {
+            width: 48px;
+            height: 48px;
+            background: #F8F7F4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .footer-tagline {
+            color: var(--text-light);
+            max-width: 500px;
+            margin: 1rem auto;
+            line-height: 1.6;
+        }
+
+        .footer-copyright {
+            color: #6b7280;
+            font-size: 0.9rem;
             margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+ 
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <!-- Logo -->
+             
                 <div class="logo">
                     <div class="logo-circle">
-                        <img src="icon.svg" alt="D'Bayong Art Logo" style="width: 36px; height: 36px;" />
+                        <img src="Untitled design (3).png" alt="D'Bayong Art Logo" style="width: 36px; height: 36px;" />
                     </div>
                     <span class="logo-text">D'Bayong Art</span>
                 </div>
 
-                <!-- Desktop Navigation -->
+              
                 <nav class="nav">
                     <a href="#home" class="nav-link">HOME</a>
                     <a href="#about" class="nav-link">ABOUT US</a>
@@ -929,62 +870,99 @@
             <!-- Featured Products Grid -->
             <div class="collection-grid">
                 <div class="product-card">
-                    <div class="product-image">Floral Bayong Image</div>
+                    <div class="product-image">
+                        <img src="collection/IMG_0391.jpg" alt="Elegant Floral Bayong">
+                    </div>
                     <div class="product-info">
-                        <h3 class="product-title">Tropical Bloom Bayong</h3>
+                        <h3 class="product-title">Sunflower Delight</h3>
                         <p class="product-category">Hand-painted</p>
-                        <p class="product-description">Vibrant hand-painted tropical flowers on natural pandan weave, perfect for summer outings and beach trips.</p>
-                        <button class="btn">VIEW DETAILS</button>
+                        <p class="product-desc">Vibrant sunflower design on natural bayong, perfect for summer occasions.</p>
                     </div>
                 </div>
 
                 <div class="product-card">
-                    <div class="product-image">Clutch Bag Image</div>
-                    <div class="product-info">
-                        <h3 class="product-title">Evening Elegance Clutch</h3>
-                        <p class="product-category">Clutches</p>
-                        <p class="product-description">Sophisticated woven clutch with intricate patterns, ideal for formal events and special occasions.</p>
-                        <button class="btn">VIEW DETAILS</button>
+                    <div class="product-image">
+                        <img src="collection/IMG_7953.jpg" alt="Premium Woven Bayong">
                     </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">Tote Bag Image</div>
                     <div class="product-info">
-                        <h3 class="product-title">Heritage Market Tote</h3>
+                        <h3 class="product-title">Natural Weave Classic</h3>
                         <p class="product-category">Hand crafted</p>
-                        <p class="product-description">Spacious traditional tote with reinforced handles, combining functionality with authentic Filipino craftsmanship.</p>
-                        <button class="btn">VIEW DETAILS</button>
+                        <p class="product-desc">Traditional woven bayong with elegant natural finish, ideal for everyday use.</p>
                     </div>
                 </div>
 
                 <div class="product-card">
-                    <div class="product-image">Pouch Set Image</div>
-                    <div class="product-info">
-                        <h3 class="product-title">Artisan Pouch Collection</h3>
-                        <p class="product-category">Pouches and wallets</p>
-                        <p class="product-description">Set of three embroidered pouches in varying sizes, perfect for organizing essentials with style.</p>
-                        <button class="btn">VIEW DETAILS</button>
+                    <div class="product-image">
+                        <img src="collection/IMG_1561.jpg" alt="Designer Bayong">
                     </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">Gift Token Image</div>
                     <div class="product-info">
-                        <h3 class="product-title">Cultural Gift Set</h3>
-                        <p class="product-category">Gifts and Tokens</p>
-                        <p class="product-description">Curated collection of mini bayong accessories, perfect for sharing Filipino heritage with loved ones.</p>
-                        <button class="btn">VIEW DETAILS</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">Premium Bag Image</div>
-                    <div class="product-info">
-                        <h3 class="product-title">Signature Art Piece</h3>
+                        <h3 class="product-title">Floral Garden Series</h3>
                         <p class="product-category">Hand-painted</p>
-                        <p class="product-description">Limited edition bayong featuring original artwork by local artists, a true collector's masterpiece.</p>
-                        <button class="btn">VIEW DETAILS</button>
+                        <p class="product-desc">Delicate hand-painted garden flowers on premium bayong material.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="collection/IMG_2904.jpg" alt="Artistic Bayong">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Butterfly Garden</h3>
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Beautiful butterfly and floral motif, bringing nature's elegance to life.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="collection/IMG_7903.jpg" alt="Classic Bayong">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Natural Elegance</h3>
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Expertly woven classic bayong showcasing traditional Filipino craftsmanship.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="da/IMG_2236.jpg" alt="Premium Woven Bayong">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Natural Weave Classic</h3>
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Traditional woven bayong with elegant natural finish, ideal for everyday use.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="da/IMG_2240.jpg" alt="Premium Woven Bayong">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Natural Weave Classic</h3>
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Traditional woven bayong with elegant natural finish, ideal for everyday use.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="da/IMG_8057.jpg" alt="Premium Woven Bayong">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Natural Weave Classic</h3>
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Traditional woven bayong with elegant natural finish, ideal for everyday use.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="collection/IMG_9441.jpg" alt="Designer Collection">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Rose Garden Dream</h3>
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Romantic rose design with intricate details, perfect for special occasions.</p>
                     </div>
                 </div>
             </div>
@@ -1001,75 +979,564 @@
 
             <!-- Category Buttons -->
             <div class="category-buttons">
-                <button class="category-btn active">All Categories</button>
-                <button class="category-btn">Hand-painted</button>
-                <button class="category-btn">Hand crafted</button>
-                <button class="category-btn">Clutches</button>
-                <button class="category-btn">Pouches and wallets</button>
-                <button class="category-btn">Gifts and Tokens</button>
+                <button class="category-btn active" data-category="all">All Categories</button>
+                <button class="category-btn" data-category="handpainted">Hand-painted</button>
+                <button class="category-btn" data-category="handcrafted">Hand crafted</button>
+                <button class="category-btn" data-category="clutchpouch">Clutches & Pouches</button>
+                <button class="category-btn" data-category="gifts">Event Gift and Tokens</button>
             </div>
 
-            <!-- Products Grid -->
-            <div class="collection-grid">
+            <!-- Products Grids for Each Category -->
+            <div id="category-all" class="collection-grid category-container">
+                <!-- Hand-painted Products -->
                 <div class="product-card">
-                    <div class="product-image">Bayong Design 1</div>
+                    <div class="product-image">
+                        <img src="hand/IMG_1042.jpg" alt="Floral Design Bayong">
+                    </div>
                     <div class="product-info">
-                        <h3 class="product-title">Classic Weave Tote</h3>
+                        <h3 class="product-title">Spring Blossoms</h3>
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Delicate hand-painted florals bring this Bayong to life with vibrant colors.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_0296.jpg" alt="Traditional Woven Bayong">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Heritage Weave</h3>
                         <p class="product-category">Hand crafted</p>
-                        <p class="product-description">Traditional pandan weave in natural tones, showcasing timeless Filipino craftsmanship.</p>
-                        <button class="btn">SEE MORE</button>
+                        <p class="product-desc">Masterfully woven using traditional techniques passed down through generations.</p>
                     </div>
                 </div>
 
                 <div class="product-card">
-                    <div class="product-image">Bayong Design 2</div>
-                    <div class="product-info">
-                        <h3 class="product-title">Sunset Painted Bag</h3>
-                        <p class="product-category">Hand-painted</p>
-                        <p class="product-description">Beautiful sunset motifs painted on premium bayong material, capturing Philippine landscapes.</p>
-                        <button class="btn">SEE MORE</button>
+                    <div class="product-image">
+                        <img src="gift/IMG_9034.jpg" alt="Special Event Gift Set">
                     </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">Bayong Design 3</div>
                     <div class="product-info">
-                        <h3 class="product-title">Minimalist Clutch</h3>
-                        <p class="product-category">Clutches</p>
-                        <p class="product-description">Clean, modern design with subtle texture, perfect for contemporary fashion enthusiasts.</p>
-                        <button class="btn">SEE MORE</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">Bayong Design 4</div>
-                    <div class="product-info">
-                        <h3 class="product-title">Travel Organizer Set</h3>
-                        <p class="product-category">Pouches and wallets</p>
-                        <p class="product-description">Complete set of travel pouches in coordinated designs, ideal for organized packing.</p>
-                        <button class="btn">SEE MORE</button>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">Bayong Design 5</div>
-                    <div class="product-info">
-                        <h3 class="product-title">Souvenir Mini Collection</h3>
+                        <h3 class="product-title">Celebration Collection</h3>
                         <p class="product-category">Gifts and Tokens</p>
-                        <p class="product-description">Adorable mini bayong keychains and tokens, perfect souvenirs representing Filipino culture.</p>
-                        <button class="btn">SEE MORE</button>
+                        <p class="product-desc">Beautifully crafted gift sets perfect for special occasions and corporate events.</p>
                     </div>
                 </div>
 
+                <!-- Clutches & Pouches Products -->
                 <div class="product-card">
-                    <div class="product-image">Bayong Design 6</div>
+                    <div class="product-image">
+                        <img src="crafted/IMG_0321.jpg" alt="Designer Clutch Bag">
+                    </div>
                     <div class="product-info">
-                        <h3 class="product-title">Festival Celebration Bag</h3>
-                        <p class="product-category">Hand-painted</p>
-                        <p class="product-description">Colorful festival-inspired designs celebrating Philippine traditions and cultural festivities.</p>
-                        <button class="btn">SEE MORE</button>
+                        <h3 class="product-title">Designer Clutch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Elegant handwoven clutch perfect for special occasions.</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Add new Clutches & Pouches section -->
+            <div id="category-clutchpouch" class="collection-grid category-container" style="display:none;">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/9.png" alt="Designer Clutch Bag">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Designer Clutch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Elegant handwoven clutch perfect for special occasions.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/d.png" alt="Woven Pouch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Classic Pouch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Versatile handcrafted pouch for everyday essentials.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/dd.png" alt="Evening Clutch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Evening Clutch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Sophisticated evening clutch with traditional weaving patterns.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/ddd.png" alt="Multi-purpose Pouch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Multi-purpose Pouch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Stylish and practical pouch for various uses.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/dddd.png" alt="Multi-purpose Pouch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Multi-purpose Pouch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Stylish and practical pouch for various uses.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/ddss.png" alt="Multi-purpose Pouch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Multi-purpose Pouch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Stylish and practical pouch for various uses.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/ds.png" alt="Multi-purpose Pouch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Multi-purpose Pouch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Stylish and practical pouch for various uses.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/dss.png" alt="Multi-purpose Pouch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Multi-purpose Pouch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Stylish and practical pouch for various uses.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/dsss.png" alt="Multi-purpose Pouch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Multi-purpose Pouch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Stylish and practical pouch for various uses.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="pouches/csat/ddss.png" alt="Multi-purpose Pouch">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Multi-purpose Pouch</h3>
+                        <p class="product-category">Clutches & Pouches</p>
+                        <p class="product-desc">Stylish and practical pouch for various uses.</p>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div id="category-handpainted" class="collection-grid category-container" style="display:none;">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_1042.jpg" alt="Floral Design Bayong">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Spring Blossoms</h3>
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Delicate hand-painted florals bring this Bayong to life with vibrant colors.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_1043.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_1558.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_7904.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_8056.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_1561.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_2310.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_4902.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_5909.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_5909.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_2904.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_6425.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_6426.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_7903.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_7904.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_8056.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_1560 (1).jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="hand/IMG_6190.jpg" alt="Hand-painted Bag" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand-painted</p>
+                        <p class="product-desc">Unique hand-painted design, crafted by local artisans.</p>
+                    </div>
+                </div>
+            
+            </div>
+            <div id="category-handcrafted" class="collection-grid category-container" style="display:none;">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_0296.jpg" alt="Traditional Woven Bayong">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Heritage Weave</h3>
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Masterfully woven using traditional techniques passed down through generations.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_0321.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Expertly woven accessory, blending tradition and style.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_0322.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Sustainable and unique, made with care by local artisans.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_0660.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">A stylish handcrafted piece, ideal for any occasion.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_2056.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Traditional weaving meets modern design in this item.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_4685.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Handmade with love, perfect for gifting or personal use.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_5574.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">A durable and elegant handcrafted accessory.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_7073.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Locally made, showcasing Filipino artistry and skill.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_8011.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">A unique piece, handwoven for lasting quality.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_8372.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Combining tradition and innovation in every weave.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_8580.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">A handcrafted accessory, perfect for your collection.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/IMG_8612.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Artisan-made, reflecting Filipino heritage and pride.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/att.VluxvtGYlk5uPQjTnO7vyubZld9ZqfLGgBEAaK8RNks.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">A practical and beautiful handcrafted item for daily use.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="crafted/att.zkKcy5_YgR-HQN1olHV5WWdNyCWARxgAWMInhqXBCTw.jpg" alt="Handcrafted Item" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Hand crafted</p>
+                        <p class="product-desc">Handcrafted with care, a true work of Filipino art.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="category-gifts" class="collection-grid category-container" style="display:none;">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_0470.jpg" alt="Special Occasion Gift Set">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Celebration Collection</h3>
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">Elegant gift sets designed for weddings, corporate events, and special occasions.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9034.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">A unique token to show appreciation and care.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9497.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">Handcrafted keepsake, ideal for special celebrations.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9503.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">A memorable gift, made with Filipino artistry.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9513.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">Perfect for giveaways and event souvenirs.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9660.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">A small token with a big meaning, handcrafted with love.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9661.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">A beautiful memento for friends and family.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9662.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">Handcrafted gift, perfect for corporate events.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9665.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">A unique keepsake to cherish and remember.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9666.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">A special handcrafted item for your loved ones.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="gift/IMG_9703.jpg" alt="Gift or Token" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Gifts and Tokens</p>
+                        <p class="product-desc">A creative token, perfect for any celebration.</p>
+                    </div>
+                </div>
+               
             </div>
         </div>
     </section>
@@ -1085,126 +1552,177 @@
                 </p>
             </div>
 
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <a href="mailto:derickzamora36@gmail.com" style="text-decoration:none; color:inherit;">
-                        <svg class="contact-icon" fill="#fff" stroke="#e11d48" viewBox="0 0 24 24">
-                            <rect x="3" y="5" width="18" height="14" rx="2" fill="#fff" stroke="#e11d48" stroke-width="2"/>
-                            <path d="M3 8l9 6 9-6" stroke="#e11d48" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <h3 class="contact-title">Email</h3>
-                        <p class="contact-info">derickzamora36@gmail.com</p>
-                    </a>
+            <div class="contact-info-grid">
+                <div class="contact-info-item">
+                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M22 7l-10 7L2 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <h3 class="contact-title">Email</h3>
+                    <p class="contact-detail">derickzamora36@gmail.com</p>
                 </div>
 
-                <div class="contact-card">
-                    <a href="https://www.facebook.com/DBayongArt" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
-                        <!-- Facebook SVG Icon -->
-                        <svg class="contact-icon" fill="#1877F3" viewBox="0 0 24 24">
-                            <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/>
-                        </svg>
-                        <h3 class="contact-title">Facebook</h3>
-                        <p class="contact-info">D'Bayong Art</p>
-                    </a>
+                <div class="contact-info-item">
+                    <svg class="contact-icon facebook" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/>
+                    </svg>
+                    <h3 class="contact-title">Facebook</h3>
+                    <p class="contact-detail">D'Bayong Art</p>
                 </div>
 
-                <div class="contact-card">
-                    <a href="https://www.google.com/maps/place/Bacolod+City,+Negros+Occidental,+Philippines/@10.6765,122.9509,12z" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
-                        <svg class="contact-icon" fill="none" stroke="#e11d48" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                            <circle cx="12" cy="11" r="3" stroke="#e11d48" stroke-width="2" fill="none"/>
-                        </svg>
-                        <h3 class="contact-title">Location</h3>
-                        <p class="contact-info">Bacolod City, Negros Occidental</p>
-                    </a>
+                <div class="contact-info-item">
+                    <svg class="contact-icon location" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <circle cx="12" cy="11" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                    <h3 class="contact-title">Location</h3>
+                    <p class="contact-detail">Bacolod City, Negros Occidental</p>
                 </div>
             </div>
 
-            <div class="text-center mt-8">
-                <p class="contact-info">
-                    We specialize in unique handcrafted Bayong bags and look forward to hearing from you.
-                </p>
-            </div>
+           
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-logo">
-                <div class="footer-logo-circle">
-                    <span style="color: #1a202c; font-weight: bold; font-size: 1rem;">D</span>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo-circle">
+                        <img src="logo (2).png" alt="D'Bayong Art Logo" style="width: 32px; height: 32px; object-fit: contain;">
+                    </div>
+                    <h2 class="footer-logo-text">D'Bayong Art</h2>
                 </div>
-                <span class="footer-brand">D'Bayong Art</span>
+
+                <p class="footer-tagline">
+                    Preserving Filipino craftsmanship through beautiful handwoven Bayong bags
+                </p>
+
+                <p class="footer-copyright">© 2025 D'Bayong Art. All rights reserved.</p>
             </div>
-            <p class="footer-description">
-                Preserving Filipino craftsmanship through beautiful handwoven Bayong bags
-            </p>
-            <p class="footer-copyright">© 2024 D'Bayong Art. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu functionality
-        function toggleMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            mobileNav.classList.toggle('active');
-        }
-
-        function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            mobileNav.classList.remove('active');
-        }
-
-        // Simple category filtering functionality
+        // Defer non-critical JavaScript execution
         document.addEventListener('DOMContentLoaded', function() {
+            // Cache DOM elements
             const categoryButtons = document.querySelectorAll('.category-btn');
+            const categoryContainers = document.querySelectorAll('.category-container');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const header = document.querySelector('.header');
+            let lastScroll = 0;
             
-            categoryButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
+            function switchCategory(category) {
+                requestAnimationFrame(() => {
                     categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                });
-            });
+                    const activeButton = document.querySelector(`[data-category="${category}"]`);
+                    if (activeButton) activeButton.classList.add('active');
 
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                    categoryContainers.forEach(container => {
+                        container.classList.add('fade');
+                        setTimeout(() => {
+                            container.style.display = 'none';
+                            container.classList.remove('fade');
+                        }, 300);
+                    });
+
+                    const selectedContainer = document.getElementById(`category-${category}`);
+                    if (selectedContainer) {
+                        setTimeout(() => {
+                            selectedContainer.style.display = 'grid';
+                            selectedContainer.offsetHeight; // Force reflow
+                            selectedContainer.classList.remove('fade');
+                        }, 300);
                     }
                 });
-            });
+            }
 
-            // Close mobile menu when clicking outside
+            // Use event delegation for better performance
             document.addEventListener('click', function(e) {
-                const mobileNav = document.getElementById('mobileNav');
-                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                // Handle category button clicks
+                if (e.target.classList.contains('category-btn')) {
+                    const category = e.target.getAttribute('data-category');
+                    switchCategory(category);
+                }
                 
+                // Handle mobile menu clicks
                 if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                     mobileNav.classList.remove('active');
                 }
             });
 
-            // Header scroll effect
+            // Throttle scroll event for better performance
+            let ticking = false;
             window.addEventListener('scroll', function() {
-                const header = document.querySelector('.header');
-                if (window.scrollY > 100) {
-                    header.style.background = 'rgba(255, 255, 255, 0.98)';
-                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.95)';
-                    header.style.boxShadow = 'none';
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const currentScroll = window.scrollY;
+                        
+                        if (currentScroll > 100) {
+                            header.style.background = 'rgba(255, 255, 255, 0.98)';
+                            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                        } else {
+                            header.style.background = 'rgba(255, 255, 255, 0.95)';
+                            header.style.boxShadow = 'none';
+                        }
+
+                        lastScroll = currentScroll;
+                        ticking = false;
+                    });
+                    ticking = true;
                 }
             });
+
+            // Smooth scroll with requestAnimationFrame
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                        const startPosition = window.pageYOffset;
+                        const distance = targetPosition - startPosition;
+                        const duration = 1000;
+                        let start = null;
+
+                        function animation(currentTime) {
+                            if (start === null) start = currentTime;
+                            const timeElapsed = currentTime - start;
+                            const progress = Math.min(timeElapsed / duration, 1);
+                            const ease = easeOutCubic(progress);
+                            
+                            window.scrollTo(0, startPosition + distance * ease);
+
+                            if (timeElapsed < duration) {
+                                requestAnimationFrame(animation);
+                            }
+                        }
+
+                        function easeOutCubic(t) {
+                            return 1 - Math.pow(1 - t, 3);
+                        }
+
+                        requestAnimationFrame(animation);
+                    }
+                });
+            });
         });
+
+        // Lazy load images
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        } else {
+            // Fallback for browsers that don't support lazy loading
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+            document.body.appendChild(script);
+        }
     </script>
 </body>
 </html>
