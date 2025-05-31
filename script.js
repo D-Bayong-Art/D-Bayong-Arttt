@@ -204,3 +204,10 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
+
+<nav class="nav">
+    <a href="#home" class="nav-link">HOME</a>
+    <a href="#about" class="nav-link">ABOUT US</a>
+    <a href="#collection" class="nav-link">COLLECTION</a>
+    <a href="#contact" class="nav-link">CONTACT US</a>
+</nav>
