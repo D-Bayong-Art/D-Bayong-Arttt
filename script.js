@@ -160,25 +160,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scrolling for anchor links
+    // Smooth scroll for all anchor links (desktop and mobile)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
+            if (targetId.length > 1 && document.querySelector(targetId)) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                const header = document.querySelector('.header');
+                const headerHeight = header ? header.offsetHeight : 0;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
                 // Close mobile menu if open
-                closeMobileMenu();
+                if (mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                }
             }
         });
     });
